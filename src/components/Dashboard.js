@@ -7,60 +7,10 @@ import PropTypes from "prop-types";
 const Dashboard = (props) => {
   const { unansweredQuestionsIds, answeredQuestionsIds } = props;
 
-  const panes = [
-    {
-      menuItem: "Unanswered",
-      render: () => (
-        <Tab attached={false}>
-          {unansweredQuestionsIds.length === 0 && (
-            <Toast
-              icon="inbox"
-              header="No Questions"
-              content="You have answered all the questions"
-            />
-          )}
-          {unansweredQuestionsIds.map((id) => (
-            <Question key={id} id={id} />
-          ))}
-        </Tab>
-      ),
-    },
-
-    {
-      menuItem: "Answered",
-      render: () => (
-        <Tab attached={false}>
-          {answeredQuestionsIds.length === 0 && (
-            <Toast
-              icon="inbox"
-              header="No Questions"
-              content="You haven&#39;t answered any question"
-            />
-          )}
-          {answeredQuestionsIds.map((id) => (
-            <Question key={id} id={id} />
-          ))}
-        </Tab>
-      ),
-    },
-  ];
-
   return (
     <div>
       <h2>Dashboard</h2>
-      <Tabs menu={{ secondary: true, pointing: true }} panes={panes}>
-        <Tab eventKey="answered" title="Answered">
-          {answeredQuestionsIds.length === 0 && (
-            <Toast
-              icon="inbox"
-              header="No Questions"
-              content="You haven&#39;t answered any question"
-            />
-          )}
-          {answeredQuestionsIds.map((id) => (
-            <Question key={id} id={id} />
-          ))}
-        </Tab>
+      <Tabs menu={{ secondary: true, pointing: true }}>
         <Tab eventKey="unanswered" title="Unanswered">
           {unansweredQuestionsIds.length === 0 && (
             <Toast
@@ -70,6 +20,18 @@ const Dashboard = (props) => {
             />
           )}
           {unansweredQuestionsIds.map((id) => (
+            <Question key={id} id={id} />
+          ))}
+        </Tab>
+        <Tab eventKey="answered" title="Answered">
+          {answeredQuestionsIds.length === 0 && (
+            <Toast
+              icon="inbox"
+              header="No Questions"
+              content="You haven&#39;t answered any question"
+            />
+          )}
+          {answeredQuestionsIds.map((id) => (
             <Question key={id} id={id} />
           ))}
         </Tab>

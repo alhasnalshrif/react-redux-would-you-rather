@@ -103,28 +103,6 @@ const Question = (props) => {
                 </Row>
               </Container>
             </Card.Text>
-
-            {/* <Feed>
-              <Feed.Event>
-                <Feed.Label>
-
-                  <img src={author.avatarURL} alt={author.name} />
-
-                </Feed.Label>
-                <Feed.Content>
-                  <Feed.Meta>
-
-                    Posted by
-                    <Feed.User>
-
-                      {author.name}
-                      {authedUser === author.id && <span> (You)</span>}
-
-                    </Feed.User>
-                  </Feed.Meta>
-                </Feed.Content>
-              </Feed.Event>
-            </Feed> */}
           </Card.Body>
         </Fragment>
       )}
